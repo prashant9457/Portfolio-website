@@ -1,0 +1,283 @@
+/* ========== GLOBAL RESET ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #000000, #061161);
+    background-attachment: fixed; /* ensures gradient stays during scroll */
+    color: #fff; /* default text stays readable */
+    font-family: Arial, sans-serif;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3 {
+    color: #FFCC00;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+p, li {
+    color: #BFBFBF;
+    font-size: 17px;
+}
+
+/* ========== NAVBAR ========== */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background:linear-gradient(90deg, #000000, #061161);
+    border-bottom: 1px solid #4A005E;
+    z-index: 100;
+    transition: margin-right 4s ease-in-out;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #EDEDED;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #4AA8FF;
+}
+
+/* Make navbar responsive */
+@media(max-width: 768px) {
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+}
+
+/* ========== HERO SECTION ========== */
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 10%;
+    min-height: 90vh;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4b0082; /* dark purple button */
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #6a0dad;
+    transform: scale(1.05);
+}
+
+.hero-image img {
+    max-width: 350px;
+    width: 100%;
+    border-radius: 225px;
+    object-fit: cover;
+}
+.rotating-box {
+    perspective: 1000px;
+}
+
+.rotating-inner {
+    width: 350px;
+    height: 350px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateY 6s linear infinite;
+}
+
+.rotating-inner img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Back face so that the image appears when it flips */
+.rotating-inner .back {
+    transform: rotateY(180deg);
+}
+
+/* Rotation Keyframes */
+@keyframes rotateY {
+    from { transform: rotateY(0deg); }
+    to   { transform: rotateY(360deg); }
+}
+@media (max-width: 768px) {
+    .rotating-inner {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+/* ========== SECTION STYLES ========== */
+section {
+    padding: 100px 20px 70px; /* space below navbar */
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Decrease top padding under fixed navbar */
+#home {
+    padding-top: 120px;
+}
+
+/* ========== ABOUT ========== */
+.about p {
+    max-width: 700px;
+}
+
+/* ========== SKILLS ========== */
+/* ========= SKILL CARDS ========= */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.skill-card {
+    background: #1C1C1C;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px 10px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.skill-card:hover {
+    transform: scale(1.07);
+    border-color: #4AA8FF;
+}
+
+.skill-card img {
+    width: 60px;                  /* Adjust image size as needed */
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.skill-card h3 {
+    color: #FFFFFF;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+
+/* ========== PROJECTS ========== */
+.project-card {
+    background: #1C1C1C;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #2E2E2E;
+}
+
+.project-card a {
+    color: #4AA8FF;
+    text-decoration: none;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
+
+/* ========== CONTACT FORM ========== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 500px;
+    width: 100%;
+}
+
+form input, form textarea {
+    padding: 10px;
+    background: #2A2A2A;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 4px;
+}
+
+form button {
+    background: #4AA8FF;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #357ABD;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1E1E1E;
+    margin-top: 50px;
+    border-top: 1px solid #333;
+}
+
+footer a {
+    color: #4AA8FF;
+    margin: 0 5px;
+    text-decoration: none;
+}
