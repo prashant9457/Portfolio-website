@@ -13,7 +13,7 @@ html, body {
     background: linear-gradient(90deg, #000000, #061161);
     background-attachment: fixed; /* ensures gradient stays during scroll */
     color: #fff; /* default text stays readable */
-    font-family: Arial, sans-serif;
+    font-family: 'Lilex', sans-serif;
 }
 
 /* ========== TYPOGRAPHY ========== */
@@ -177,9 +177,89 @@ section {
 }
 
 /* ========== ABOUT ========== */
-.about p {
-    max-width: 700px;
+.about-section {
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
 }
+
+.about-container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    position: relative;
+}
+
+/* Left image */
+.about-image img {
+    width: 400px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+/* Right card overlapping the image */
+.about-card {
+    background: linear-gradient(135deg, #1A0028, #3C0069);
+    border-radius: 20px;
+    padding: 40px;
+    color: #EDEDED;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    position: relative;
+    left: -30px;  /* overlap by 30px */
+    max-width: 600px;
+    animation: float 6s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.7);
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+.about-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #D7B2FF;
+}
+
+.about-card p {
+    font-size: 0.8rem;
+    line-height: 1.8;
+}
+
+/* Container for icons at bottom of card */
+.about-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-card {
+        left: 0;
+        margin-top: -30px; /* small overlap effect on mobile */
+    }
+
+    .about-image img {
+        width: 80%;
+        max-width: 300px;
+    }
+}
+
 
 /* ========== SKILLS ========== */
 /* ========= SKILL CARDS ========= */
